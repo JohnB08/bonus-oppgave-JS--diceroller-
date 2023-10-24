@@ -22,20 +22,24 @@ function diceRoller(dice, sides) {
   //fjerner evt. gamle terninger og summ fra dicecontainer ved en lett loop
   let currentDice = document.querySelectorAll(".dice");
   let currentSum = document.querySelector(".sum");
+  //her ser eg om currentsum finnes, via truey falsey.
   if (currentSum) {
     currentSum.remove();
   }
+  //her fjerner eg hvert terning element som evt allerede eksisterer.
   for (let oneDice of currentDice) {
     oneDice.remove();
   }
-  //rolledDice er der kun for kontroll via console.log
+  //rolledDice var orginalt kun for kontroll via console.log, er nå og med å lage totalsum.
   const rolledDice = [];
+  //Her resettes og rolledDice til et tomt array før loopen kjøres.
   for (let i = 0; i < dice; i++) {
     let rollDice = Math.ceil(Math.random() * sides);
     let dice = document.createElement("div");
     dice.classList.add("dice");
     dice.textContent = rollDice;
     diceContainer.appendChild(dice);
+    //pusher her resulatet til rolled dice array.
     rolledDice.push(rollDice);
   }
   //just in case så endrer eg tilbake label som det var orginalt.
