@@ -1,0 +1,83 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 100px repeat(3, 1fr);
+}
+.main {
+  padding: 20px;
+  grid-area: 2/2/4/4;
+  border: 1rem solid black;
+  border-radius: 2em;
+  background-color: #b8d5b8;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.container button {
+  margin-left: 10px;
+  margin-bottom: 0.8em;
+  border: none;
+  padding: 1em 1.5em;
+  border-radius: 1em;
+  color: #254e70;
+  font-weight: bold;
+  background-color: #eccbd9;
+  border-bottom: 0.4em solid #a30b37;
+  transition: 0.3s ease-in-out;
+}
+.container button:hover,
+.container button:focus {
+  margin-bottom: 1em;
+  border-bottom: 0.2em solid #a30b37;
+}
+.container button:active {
+  transform: translateY(0.4em);
+  margin-bottom: 1.2em;
+  border-bottom: none;
+}
+.inputcon {
+  box-sizing: border-box;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+}
+.inputcon label {
+  font-weight: bold;
+}
+#dicecontainer {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 20px;
+  gap: 10px;
+}
+.dice {
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-top: 4px;
+  border-bottom: 6px;
+  border-left: 4px;
+  border-right: 6px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 15px;
+}
+.sum {
+  display: block;
+  font-weight: bold;
+  font-size: 24px;
+}
