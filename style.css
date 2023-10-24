@@ -78,4 +78,6 @@ body {
   display: block;
   font-weight: bold;
   font-size: 24px;
+  margin: auto;
+  align-self: center;
 }
