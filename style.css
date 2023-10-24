@@ -60,7 +60,7 @@ body {
   flex-wrap: wrap;
   width: 100%;
   margin: 10px;
-  gap: 15px;
+  gap: 1rem;
 }
 .dice {
   width: 56px;
