@@ -59,8 +59,8 @@ body {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  padding: 20px;
-  gap: 10px;
+  margin: 10px;
+  gap: 15px;
 }
 .dice {
   width: 56px;
