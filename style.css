@@ -30,13 +30,13 @@ body {
   border-radius: 1em;
   color: #254e70;
   font-weight: bold;
-  background-color: #eccbd9;
+  background-color: snow;
   transition: 0.3s ease-in-out;
 }
 .container button:hover,
 .container button:focus {
   cursor: pointer;
-  color: #eccbd9;
+  color: snow;
   background-color: #254e70;
 }
 
