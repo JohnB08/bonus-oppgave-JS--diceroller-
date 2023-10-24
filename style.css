@@ -63,8 +63,8 @@ body {
   gap: 10px;
 }
 .dice {
-  width: 40px;
-  height: 40px;
+  width: 56px;
+  height: 56px;
   font-size: 24px;
   font-weight: bold;
   display: flex;
