@@ -31,19 +31,15 @@ body {
   color: #254e70;
   font-weight: bold;
   background-color: #eccbd9;
-  border-bottom: 0.4em solid #a30b37;
   transition: 0.3s ease-in-out;
 }
 .container button:hover,
 .container button:focus {
-  margin-bottom: 1em;
-  border-bottom: 0.2em solid #a30b37;
+  cursor: pointer;
+  color: #eccbd9;
+  background-color: #254e70;
 }
-.container button:active {
-  transform: translateY(0.4em);
-  margin-bottom: 1.2em;
-  border-bottom: none;
-}
+
 .inputcon {
   box-sizing: border-box;
   width: 50%;
