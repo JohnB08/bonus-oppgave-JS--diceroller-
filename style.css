@@ -58,6 +58,11 @@ body {
   font-size: 18px;
   box-shadow: 0 0.2em 0 snow;
   transition: 0.3s ease-in-out;
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    appearance: none;
+  }
 }
 
 .normal-label {
