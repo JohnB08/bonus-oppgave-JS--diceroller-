@@ -87,8 +87,6 @@ function diceRoller(dice, sides) {
     //pusher her resulatet til rolled dice array.
     rolledDice.push(rollDice);
   }
-  //just in case så endrer eg tilbake label som det var orginalt.
-  console.log(rolledDice);
   //her bruker eg rolledDice arrayet for å summere sammen verdien av alle terningene.
   let totalRoll = 0;
   for (let singleDice of rolledDice) {
