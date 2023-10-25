@@ -6,9 +6,6 @@ const diceLabel = document.querySelector("#dicelabel");
 const faceLabel = document.querySelector("#facelabel");
 const labelArray = document.querySelectorAll("label");
 const diceContainer = document.querySelector("#dicecontainer");
-//Her leter eg etter to elementer som blir laget i funksjonen. Dette blir brukt av funksjonen for å resette.
-let currentDice = document.querySelectorAll(".dice");
-let currentSum = document.querySelector(".sum");
 //bruker bare en knapp, så henter bare en generell button
 const btn = document.querySelector("button");
 //Øver på å manipulere classlists via DOM
@@ -56,19 +53,21 @@ function diceRoller(dice, sides) {
     faceLabel.classList.add("red");
     inputFaces.classList.add("focused-input-error");
     return;
-  } else {
-    //korrigerer labels etter bruker har rettet
-    for (let label of labelArray) {
-      label.classList.remove("red");
-    }
-    for (let input of inputArray) {
-      input.classList.remove("focused-input-error");
-    }
-    diceLabel.textContent = "Velg antall terninger!";
-    faceLabel.textContent = "Velg antall sider!";
   }
-  //fjerner evt. gamle terninger og sum fra dicecontainer ved en lett loop
+  //korrigerer labels etter bruker har rettet
+  for (let label of labelArray) {
+    label.classList.remove("red");
+  }
+  for (let input of inputArray) {
+    input.classList.remove("focused-input-error");
+  }
+  diceLabel.textContent = "Velg antall terninger!";
+  faceLabel.textContent = "Velg antall sider!";
 
+  //fjerner evt. gamle terninger og sum fra dicecontainer ved en lett loop
+  //Skjønte at hvis disse er utenfor, så ser han bare etter de en gang, og ikke hver gang funksjonen kjører.
+  const currentDice = document.querySelectorAll(".dice");
+  const currentSum = document.querySelector(".sum");
   //her ser eg om currentsum finnes, via truey falsey.
   if (currentSum) {
     currentSum.remove();
