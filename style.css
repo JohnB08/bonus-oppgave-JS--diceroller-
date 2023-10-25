@@ -6,6 +6,7 @@ hvis denne funker ok, så kanskje jeg kan lage mediaqueries til den så den funk
   padding: 0;
   font-family: "Poppins", sans-serif;
 }
+/* fast CSS */
 body {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -49,6 +50,13 @@ body {
   padding: 15px;
   position: relative;
 }
+#dicecontainer {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 10px;
+  gap: 1rem;
+}
 /* classer brukt av JS. */
 .normal-input {
   padding: 0.5em 1em;
@@ -86,13 +94,6 @@ body {
 }
 .red {
   color: red;
-}
-#dicecontainer {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  margin: 10px;
-  gap: 1rem;
 }
 .dice {
   width: 56px;
