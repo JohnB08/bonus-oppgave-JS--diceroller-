@@ -81,6 +81,9 @@ body {
   outline: 0;
   box-shadow: 0 0.4em 0 snow;
 }
+.focused-input-error {
+  box-shadow: 0 0.4em 0 red;
+}
 .red {
   color: red;
 }

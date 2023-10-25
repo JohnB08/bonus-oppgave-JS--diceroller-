@@ -46,15 +46,20 @@ function diceRoller(dice, sides) {
   if (inputDice.value < 1 || inputDice.value > 100) {
     diceLabel.textContent = "Vennligst velg antall mellom 1 og 100 ";
     diceLabel.classList.add("red");
+    inputDice.classList.add("focused-input-error");
     return;
   } else if (inputFaces.value < 1 || inputFaces.value > 100) {
     faceLabel.textContent = "Vennligst velg sider mellom 1 og 100";
     faceLabel.classList.add("red");
+    inputFaces.classList.add("focused-input-error");
     return;
   } else {
-    //korrigerer etter bruker har rettet.
+    //korrigerer labels etter bruker har rettet
     for (let label of labelArray) {
       label.classList.remove("red");
+    }
+    for (let input of inputArray) {
+      input.classList.remove("focused-input-error");
     }
     diceLabel.textContent = "Velg antall terninger!";
     faceLabel.textContent = "Velg antall sider!";
