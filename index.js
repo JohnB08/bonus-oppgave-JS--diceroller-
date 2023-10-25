@@ -1,13 +1,16 @@
 //her henter jeg inn alle element fra html jeg trenger.
 const inputDice = document.querySelector("#dice");
 const inputFaces = document.querySelector("#sides");
-const diceContainer = document.querySelector("#dicecontainer");
+const inputArray = document.querySelectorAll("input");
 const diceLabel = document.querySelector("#dicelabel");
 const faceLabel = document.querySelector("#facelabel");
+const labelArray = document.querySelectorAll("label");
+const diceContainer = document.querySelector("#dicecontainer");
+//Her leter eg etter to elementer som blir laget i funksjonen. Dette blir brukt av funksjonen for å resette.
+let currentDice = document.querySelectorAll(".dice");
+let currentSum = document.querySelector(".sum");
 //bruker bare en knapp, så henter bare en generell button
 const btn = document.querySelector("button");
-const labelArray = document.querySelectorAll("label");
-const inputArray = document.querySelectorAll("input");
 //Øver på å manipulere classlists via DOM
 //adder standard styling for inputs
 for (let input of inputArray) {
@@ -42,7 +45,7 @@ for (let i = 0; i < inputArray.length; i++) {
 
 //hentet og modifiserte diceRoller funksjonen min fra oppgave tre.
 function diceRoller(dice, sides) {
-  //legger til to "guardian clauses" for å passe på at de to inputene ikke blir for stor
+  //legger til "guardian clauses" for å passe på at de to inputene ikke blir for stor
   if (inputDice.value < 1 || inputDice.value > 100) {
     diceLabel.textContent = "Vennligst velg antall mellom 1 og 100 ";
     diceLabel.classList.add("red");
@@ -64,14 +67,13 @@ function diceRoller(dice, sides) {
     diceLabel.textContent = "Velg antall terninger!";
     faceLabel.textContent = "Velg antall sider!";
   }
-  //fjerner evt. gamle terninger og summ fra dicecontainer ved en lett loop
-  let currentDice = document.querySelectorAll(".dice");
-  let currentSum = document.querySelector(".sum");
+  //fjerner evt. gamle terninger og sum fra dicecontainer ved en lett loop
+
   //her ser eg om currentsum finnes, via truey falsey.
   if (currentSum) {
     currentSum.remove();
   }
-  //her fjerner eg hvert terning element som evt allerede eksisterer.
+  //her fjerner eg hvert terning element som allerede eksisterer.
   for (let oneDice of currentDice) {
     oneDice.remove();
   }
@@ -84,7 +86,7 @@ function diceRoller(dice, sides) {
     dice.classList.add("dice");
     dice.textContent = rollDice;
     diceContainer.appendChild(dice);
-    //pusher her resulatet til rolled dice array.
+    //pusher her resulatet til rolledDice array.
     rolledDice.push(rollDice);
   }
   //her bruker eg rolledDice arrayet for å summere sammen verdien av alle terningene.
