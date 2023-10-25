@@ -46,14 +46,38 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding: 10px;
+  padding: 15px;
+  position: relative;
 }
-.inputcon label {
-  font-weight: bold;
-}
-.inputcon input {
+/* classer brukt av JS. */
+.normal-input {
   padding: 0.5em 1em;
-  border-radius: 0.5em;
+  background: transparent;
+  border: 0;
+  font-weight: bold;
+  font-size: 18px;
+  box-shadow: 0 0.2em 0 snow;
+  transition: 0.3s ease-in-out;
+}
+
+.normal-label {
+  font-weight: bold;
+  position: absolute;
+  top: 2em;
+  transition: 0.3s ease-in-out;
+  left: 15px;
+}
+
+.focused-label {
+  transform: translateY(-2em);
+  font-size: 12px;
+}
+.focused-input {
+  outline: 0;
+  box-shadow: 0 0.4em 0 snow;
+}
+.red {
+  color: red;
 }
 #dicecontainer {
   display: flex;

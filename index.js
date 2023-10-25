@@ -6,18 +6,58 @@ const diceLabel = document.querySelector("#dicelabel");
 const faceLabel = document.querySelector("#facelabel");
 //bruker bare en knapp, så henter bare en generell button
 const btn = document.querySelector("button");
+const labelArray = document.querySelectorAll("label");
+const inputArray = document.querySelectorAll("input");
+//Øver på å manipulere classlists via DOM
+//adder standard styling for inputs
+for (let input of inputArray) {
+  input.classList.add("normal-input");
+}
+
+//adder standard styling for labels
+for (let label of labelArray) {
+  label.classList.add("normal-label");
+}
+//lager en loop som legger på en evenlistener for begge inputfieldsa.
+
+for (let i = 0; i < inputArray.length; i++) {
+  //focus betyr når den er blitt fokusert av brukeren, trykket eller tabbet innpå.
+  inputArray[i].addEventListener("focus", (event) => {
+    //legger til focused-label classen til labelet for å fyre av en animasjon!
+    labelArray[i].classList.add("focused-label");
+    //legger til focused input classen til input.
+    inputArray[i].classList.add("focused-input");
+  });
+  //blur er når brukeren går vekk fra input igjen.
+  inputArray[i].addEventListener("blur", (event) => {
+    //if statementen her skjekker om input har fått en verdi, eller fremdeles er tom.
+    if (inputArray[i].value === "") {
+      //fjerner focused-label class.
+      labelArray[i].classList.remove("focused-label");
+      //fjerner focused input class.
+      inputArray[i].classList.remove("focused-input");
+    }
+  });
+}
 
 //hentet og modifiserte diceRoller funksjonen min fra oppgave tre.
 function diceRoller(dice, sides) {
   //legger til to "guardian clauses" for å passe på at de to inputene ikke blir for stor
   if (inputDice.value < 1 || inputDice.value > 100) {
     diceLabel.textContent = "Vennligst velg antall mellom 1 og 100 ";
-    diceLabel.style.color = "red";
+    diceLabel.classList.add("red");
     return;
   } else if (inputFaces.value < 1 || inputFaces.value > 100) {
     faceLabel.textContent = "Vennligst velg sider mellom 1 og 100";
-    faceLabel.style.color = "red";
+    faceLabel.classList.add("red");
     return;
+  } else {
+    //korrigerer etter bruker har rettet.
+    for (let label of labelArray) {
+      label.classList.remove("red");
+    }
+    diceLabel.textContent = "Velg antall terninger!";
+    faceLabel.textContent = "Velg antall sider!";
   }
   //fjerner evt. gamle terninger og summ fra dicecontainer ved en lett loop
   let currentDice = document.querySelectorAll(".dice");
@@ -43,10 +83,6 @@ function diceRoller(dice, sides) {
     rolledDice.push(rollDice);
   }
   //just in case så endrer eg tilbake label som det var orginalt.
-  faceLabel.textContent = "Velg antall sider!";
-  faceLabel.style.color = "black";
-  diceLabel.textContent = "Velg antall terninger!";
-  diceLabel.style.color = "black";
   console.log(rolledDice);
   //her bruker eg rolledDice arrayet for å summere sammen verdien av alle terningene.
   let totalRoll = 0;
