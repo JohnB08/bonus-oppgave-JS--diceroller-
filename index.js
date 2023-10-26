@@ -103,3 +103,8 @@ function diceRoller(dice, sides) {
 btn.addEventListener("click", (event) => {
   diceRoller(inputDice.value, inputFaces.value);
 });
+
+//adding event listener to Enter
+document.addEventListener("keydown", (event) => {
+  if (event.code === "Enter") diceRoller(inputDice.value, inputFaces.value);
+});
